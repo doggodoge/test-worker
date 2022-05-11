@@ -1,0 +1,6 @@
+name = "test-worker"
+main = "src/index.ts"
+compatibility_date = "2022-05-09"
+
+# [secrets]
+# TWITTER_BEARER_TOKEN

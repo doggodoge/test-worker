@@ -1,6 +1,6 @@
 import { Request } from 'itty-router';
-import { corsConfig } from '../../cors';
-import { Secrets } from '../../interfaces';
+import { corsConfig } from '../../../cors';
+import { Secrets } from '../../../interfaces';
 
 async function fetchUserInfo(
   username: string,

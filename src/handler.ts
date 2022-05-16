@@ -1,6 +1,6 @@
 import { Router, Request } from 'itty-router';
-import { Repos } from './handlers/github';
-import { UserTimeline, UserProfileInfo } from './handlers/twitter';
+import { Repos } from './handlers/github/endpoints';
+import { UserTimeline, UserProfileInfo } from './handlers/twitter/endpoints';
 import { Secrets } from './interfaces';
 
 const router = Router();

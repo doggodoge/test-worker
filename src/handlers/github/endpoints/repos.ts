@@ -1,5 +1,5 @@
 import { Request } from 'itty-router';
-import { corsConfig } from '../../cors';
+import { corsConfig } from '../../../cors';
 
 async function Repos(request: Request) {
   const user = request?.params?.user;

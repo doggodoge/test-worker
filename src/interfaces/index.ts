@@ -1,3 +1,3 @@
-import Secrets from './secrets';
+import Secrets from './secrets.interface';
 
 export type { Secrets };

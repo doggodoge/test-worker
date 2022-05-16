@@ -2,8 +2,10 @@ import { Request } from 'itty-router';
 import { corsConfig } from '../../cors';
 import { Secrets } from '../../interfaces';
 
-async function UserProfileInfo(request: Request, env: Secrets) {
-  const username = request?.params?.username;
+async function fetchUserInfo(
+  username: string,
+  env: Secrets
+): Promise<Response> {
   const { body } = await fetch(
     `https://api.twitter.com/2/users/by/username/${username}`,
     {
@@ -23,4 +25,23 @@ async function UserProfileInfo(request: Request, env: Secrets) {
   });
 }
 
+async function UserProfileInfo(
+  request: Request,
+  env: Secrets
+): Promise<Response> {
+  const username = request?.params?.username;
+  if (!username) {
+    return new Response('No username provided', { status: 400 });
+  }
+  const { body } = await fetchUserInfo(username, env);
+
+  return new Response(body, {
+    headers: {
+      ...corsConfig,
+      'Content-Type': 'application/json',
+    },
+  });
+}
+
 export default UserProfileInfo;
+export { fetchUserInfo };

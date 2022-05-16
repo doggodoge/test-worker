@@ -7,7 +7,7 @@ const router = Router();
 
 router
   .get('/api/github/:user/repos', Repos)
-  .get('/api/twitter/timeline/:userId', UserTimeline)
+  .get('/api/twitter/timeline/:username', UserTimeline)
   .get('/api/twitter/userinfo/:username', UserProfileInfo)
   .get('*', () => new Response('Not found', { status: 404 }));
 
